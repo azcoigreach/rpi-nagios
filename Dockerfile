@@ -50,9 +50,9 @@ RUN apt-get update && \
         apt-get install -y --no-install-recommends\
         gcc \
         apache2 \
-        php5 \
-        php5-gd \
-        php5-sqlite \
+        php8 \
+        php8-gd \
+        php8-sqlite \
         apache2-utils \
         xinetd \
         supervisor \
