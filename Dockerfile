@@ -213,7 +213,7 @@ RUN     wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-${
         make install-daemon-config                      && \
         make install                                    && \
         #sed -i
-        rm -rf /usr/local/src/${nrpeversion}
+        rm -rf /usr/local/src/$nrpe-{nrpeversion}
 
 WORKDIR /root
 
