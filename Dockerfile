@@ -47,7 +47,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     nagvispassword=admin
 
 RUN apt-get update && \
-        apt-get install -y --no-install-recommends --no-cache-dir\
+        apt-get install -y --no-install-recommends\
         gcc \
         apache2 \
         php5 \
