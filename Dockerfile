@@ -118,16 +118,15 @@ RUN     wget https://assets.nagios.com/downloads/nagioscore/releases/${nagios}.t
 WORKDIR /usr/local/src/check-mk-raw-${livestatusversion}.cre
 RUN     wget https://download.checkmk.com/checkmk/${livestatusversion}/check-mk-raw-${livestatusversion}.cre.tar.gz && \
         tar -zxvf check-mk-raw-${livestatusversion}.cre.tar.gz -C ../ && \
-        rm -f check-mk-raw-${livestatusversion}.cre.tar.gz            && \
         ./configure --with-nagios4      && \
         make                            && \
-### specifically make mk-livestatus package /again/ with the --with-nagios4 flag,
-### by default it's build for nagios3 which doesn't work.. \
-### /usr/local/lib/mk-livestatus/livestatus.o /usr/local/nagios/var/rw/live
-        cd ./packages/mk-livestatus/mk-livestatus-${livestatusversion} && \
-        make clean && \
-        ./configure --with-nagios4 && \
-        make && \
+        ### specifically make mk-livestatus package /again/ with the --with-nagios4 flag,
+        ### by default it's build for nagios3 which doesn't work.. \
+        ### /usr/local/lib/mk-livestatus/livestatus.o /usr/local/nagios/var/rw/live
+        # cd ./packages/mk-livestatus/mk-livestatus-${livestatusversion} && \
+        # make clean && \
+        # ./configure --with-nagios4 && \
+        # make && \
         make install && \
         rm -rf /usr/local/src/check-mk-raw-${livestatusversion}.cre
 
