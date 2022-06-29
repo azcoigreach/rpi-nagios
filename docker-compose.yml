@@ -1,0 +1,47 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - 9404:80
+      - 9505:5666
+    volumes:
+      - ./nagios/nagios:/usr/local/nagios:/usr/src/app
+      - ./nagios/nagiosgraph:/usr/local/nagiosgraph
+      - ./nagios/nagvis:/usr/local/nagvis
+    environment:
+      - portainerpage=0.0.0.0:9400
+      - centreonpage=0.0.0.0:9401
+      - mantisbtpage=0.0.0.0:9402
+      - sonarpage=0.0.0.0:9403
+      - svnpage=0.0.0.0:9404
+      - ftppage=0.0.0.0:9405
+      - jenkinspage=0.0.0.0:9406
+      - nexuspage=0.0.0.0:9407
+      - utilspage=0.0.0.0:9408
+      - dokuwikipage=0.0.0.0:9409
+      - portainerlogin=admin
+      - portainerpassword=admin
+      - centreonlogin=admin
+      - centreonpassword=admin
+      - mantisbtlogin=admin
+      - mantisbtpassword=admin
+      - sonarlogin=admin
+      - sonarpassword=admin
+      - svnlogin=admin
+      - svnpassword=admin
+      - ftplogin=admin
+      - ftppassword=admin
+      - jenkinslogin=admin
+      - jenkinspassword=admin
+      - nexuslogin=admin
+      - nexuspassword=admin
+      - utilslogin=admin
+      - utilspassword=admin
+      - dokuwikilogin=admin
+      - dokuwikipassword=admin
+      - nagioslogin=nagiosadmin
+      - nagiospassword=admin
+      - nagvislogin=admin
+      - nagvispassword=admin 
+    command: /etc/rc.d/init.d/nagios start
