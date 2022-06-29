@@ -152,8 +152,8 @@ RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${n
         cp config/ndo2db.cfg /usr/local/nagios/etc && \
         # cp src/log2ndo /usr/local/nagios/bin/ && \
         # cp src/file2sock /usr/local/nagios/bin/ && \
-        chmod 774 /usr/local/nagios/bin/ndo* && \
-        chown nagios:nagios /usr/local/nagios/bin/ndo* && \
+        # chmod 774 /usr/local/nagios/bin/ndo* && \
+        # chown nagios:nagios /usr/local/nagios/bin/ndo* && \
         rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
 
 RUN sed -i 's,/bin/mail,/usr/bin/mail,' /usr/local/nagios/etc/objects/commands.cfg && \
