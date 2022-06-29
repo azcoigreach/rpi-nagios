@@ -138,13 +138,13 @@ WORKDIR /usr/local/src/${ndoutilsversion}
 RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
         tar xzvf ndoutils-${ndoutilsversion}.tar.gz && \
         cd ndoutils-${ndoutilsversion} && \
-        bash -c "CFLAGS=-DDEBUG_NDO2DB \
-        ./configure --prefix=/usr/local/nagios/ \
-        --enable-mysql --disable-pgsql \
-        --with-ndo2db-user=nagios \
-        --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
+        # bash -c "CFLAGS=-DDEBUG_NDO2DB \
+        # ./configure --prefix=/usr/local/nagios/ \
+        # --enable-mysql --disable-pgsql \
+        # --with-ndo2db-user=nagios \
+        # --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
         # make 2>&1 | tail -n 10 && \
-        # ./config && \
+        bash -c "./config" && \
         make all && \
         cp src/ndomod-4x.o /usr/local/nagios/bin/ndomod.o && \
         cp config/ndomod.cfg /usr/local/nagios/etc && \
