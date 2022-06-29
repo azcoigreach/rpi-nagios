@@ -199,7 +199,7 @@ RUN     wget http://downloads.sourceforge.net/project/nagiosgraph/nagiosgraph/${
         ### fix the perfdata log location in nagiosgraph.conf \
         sed -i 's/\/tmp\/perfdata.log/\/usr\/local\/nagios\/var\/perfdata.log/' /usr/local/nagiosgraph/etc/nagiosgraph.conf
 
-WORKDIR /usr/local/src/${nrpeversion}
+WORKDIR /usr/local/src/nrpe-${nrpeversion}
 RUN     wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-${nrpeversion}/nrpe-${nrpeversion}.tar.gz       && \
         tar -zxvf nrpe-${nrpeversion}.tar.gz -C ../                  && \
         bash -c "./configure --enable-command-args                          \
