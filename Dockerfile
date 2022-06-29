@@ -202,13 +202,13 @@ RUN     wget http://downloads.sourceforge.net/project/nagiosgraph/nagiosgraph/${
 WORKDIR /usr/local/src/nrpe-${nrpeversion}
 RUN     wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-${nrpeversion}/nrpe-${nrpeversion}.tar.gz       && \
         tar -zxvf nrpe-${nrpeversion}.tar.gz -C ../                  && \
-        bash -c "./configure --enable-command-args                          \
+        ./configure --enable-command-args                          \
                     --with-nagios-user=nagios                      \
                     --with-nagios-group=nagios                     \
                     --with-ssl=/usr/bin/openssl                    \
-                    --with-ssl-lib=/usr/lib/arm-linux-gnueabihf" && \
+                    --with-ssl-lib=/usr/lib/arm-linux-gnueabihf && \
         make all                                                && \
-        make install-inetd                                     && \
+        make install-xinetd                                     && \
         make install-daemon-config                      && \
         make install                                    && \
         #sed -i
