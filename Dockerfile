@@ -144,7 +144,7 @@ RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${n
         # --with-ndo2db-user=nagios \
         # --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
         # make 2>&1 | tail -n 10 && \
-        ./config && \
+        sudo ./config && \
         make all && \
         cp src/ndomod-4x.o /usr/local/nagios/bin/ndomod.o && \
         cp config/ndomod.cfg /usr/local/nagios/etc && \
@@ -152,8 +152,8 @@ RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${n
         cp config/ndo2db.cfg /usr/local/nagios/etc && \
         # cp src/log2ndo /usr/local/nagios/bin/ && \
         # cp src/file2sock /usr/local/nagios/bin/ && \
-        # chmod 774 /usr/local/nagios/bin/ndo* && \
-        # chown nagios:nagios /usr/local/nagios/bin/ndo* && \
+        chmod 774 /usr/local/nagios/bin/ndo* && \
+        chown nagios:nagios /usr/local/nagios/bin/ndo* && \
         rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
 
 RUN sed -i 's,/bin/mail,/usr/bin/mail,' /usr/local/nagios/etc/objects/commands.cfg && \
