@@ -181,8 +181,7 @@ RUN     wget http://www.nagvis.org/share/${nagvis}.tar.gz       && \
                      -a y                                          \
                      -F -q                                      && \
         rm -rf /usr/local/src/${nagvis}                         && \
-
-### Fix nagvis apache2.4 vhost
+        ### Fix nagvis apache2.4 vhost
         printf "%s\n" "<Directory \"/usr/local/nagvis/share\">" \
                       "  Require all granted"                   \
                       "</Directory>"                            \
