@@ -1,4 +1,4 @@
-# Nagios 4.1.1
+# Nagios 4.4.7
 
 ![docker_logo](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/docker.png)![docker_logo_nagios](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/logo-nagios.png)![docker_logo_nagvis](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/logo-nagvis.png)![docker_centreon_logo](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/logo-centreon.png)![docker_dokuwiki_logo](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/logo-dokuwiki.png)![docker_paperinik_logo](https://raw.githubusercontent.com/brunocantisano/rpi-nagios/master/files/docker_paperinik_120x120.png)
 
@@ -7,13 +7,13 @@ This Docker container implements a Nagios Monitor, Nagvis and Nagiosgraph. Origi
 
 | Program          | Version   |
 | ---------------- |:----------|
-| Nagios           | 4.1.1     |
-| Nagios-plugins   | 2.1.1     |
+| Nagios           | 4.4.7     |
+| Nagios-plugins   | 2.3.3     |
 | Nagiosgraph      | 1.5.2     |
-| NRPE             | 2.15      |
-| NDO Utils        | 1.5.2     |
-| Livestatus       | 1.2.6p16  |
-| Nagvis           | 1.8.5     |
+| NRPE             | 4.0.2     |
+| NDO Utils        | 2.1.3     |
+| Livestatus       | 1.2.8p18  |
+| Nagvis           | 1.9.33    |
 | Nuvola Theme     | 1.0.3     |
 
  * Raspbian base image: resin/rpi-raspbian.
