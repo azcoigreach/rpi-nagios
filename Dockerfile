@@ -144,7 +144,7 @@ RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${n
         # --with-ndo2db-user=nagios \
         # --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
         # make 2>&1 | tail -n 10 && \
-        sudo ./config && \
+        ./config && \
         make all && \
         cp src/ndomod-4x.o /usr/local/nagios/bin/ndomod.o && \
         cp config/ndomod.cfg /usr/local/nagios/etc && \
