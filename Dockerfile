@@ -47,7 +47,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     nagvispassword=admin
 
 RUN apt-get update && \
-        apt-get install -y --no-install-recommends \
+        apt-get install -y --no-install-recommends --no-cache-dir\
         gcc \
         apache2 \
         php5 \
@@ -112,7 +112,6 @@ RUN     wget https://assets.nagios.com/downloads/nagioscore/releases/${nagios}.t
                          sample-config/httpd.conf                        \
                          /etc/apache2/sites-enabled/nagios.conf &&       \
         echo -n admin | htpasswd -i -c /usr/local/nagios/etc/htpasswd.users nagiosadmin && \
-
         rm -rf /usr/local/src/${nagios}
 
 
@@ -130,7 +129,7 @@ RUN     wget https://mathias-kettner.de/support/${livestatusversion}/check-mk-ra
         ./configure --with-nagios4 && \
         make && \
         make install && \
-       rm -rf /usr/local/src/check-mk-raw-${livestatusversion}.cre
+        rm -rf /usr/local/src/check-mk-raw-${livestatusversion}.cre
 
 WORKDIR /usr/local/src/${nagiosplugins}
 RUN     wget http://nagios-plugins.org/download/${nagiosplugins}.tar.gz && \
@@ -198,15 +197,13 @@ RUN     wget http://downloads.sourceforge.net/project/nagiosgraph/nagiosgraph/${
         NG_WWW_DIR=/usr/local/nagios/share                                           \
         ./install.pl --prefix=/usr/local/nagiosgraph                              && \
         rm -rf /usr/local/src/nagiosgraph-${nagiosgraphversion}                   && \
-
-### Fix nagiosgraph vhost
+        ### Fix nagiosgraph vhost
         cp -prv /usr/local/nagiosgraph/etc/nagiosgraph-apache.conf /etc/apache2/sites-enabled/ && \
         printf "%s\n" "<Directory \"/usr/local/nagiosgraph/cgi/\">"     \
                       "  Require all granted"                           \
-                          "</Directory>"                        \
+                          "</Directory>"                                \
         >> /etc/apache2/sites-enabled/nagiosgraph-apache.conf           && \
-
-### fix the perfdata log location in nagiosgraph.conf \
+        ### fix the perfdata log location in nagiosgraph.conf \
         sed -i 's/\/tmp\/perfdata.log/\/usr\/local\/nagios\/var\/perfdata.log/' /usr/local/nagiosgraph/etc/nagiosgraph.conf
 
 WORKDIR /usr/local/src/${nrpeversion}
