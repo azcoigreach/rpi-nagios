@@ -142,8 +142,7 @@ RUN     wget http://nagios-plugins.org/download/${nagiosplugins}.tar.gz && \
         rm -rf /usr/local/src/${nagiosplugins}
 
 WORKDIR /usr/local/src/${ndoutilsversion}
-
-RUN wget http://downloads.sourceforge.net/project/nagios/ndoutils-1.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
+RUN wget https://sourceforge.net/projects/nagios/files/ndoutils-2.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
     tar xzvf ndoutils-${ndoutilsversion}.tar.gz && \
     rm -f /usr/local/src/ndoutils-${ndoutilsversion}.tar.gz && \
     cd ndoutils-${ndoutilsversion} && \
