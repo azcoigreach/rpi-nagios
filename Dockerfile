@@ -5,7 +5,7 @@ LABEL update="AZcoigreach <azcoigreach@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     nagios=nagios-4.4.7 \
-    livestatusversion=1.2.8p18 \
+    livestatusversion=2.1.0p4 \
     nagiosplugins=nagios-plugins-2.3.3 \
     nagvis=nagvis-1.9.33 \
     nagiosgraphversion=1.5.2 \
@@ -116,7 +116,7 @@ RUN     wget https://assets.nagios.com/downloads/nagioscore/releases/${nagios}.t
 
 
 WORKDIR /usr/local/src/check-mk-raw-${livestatusversion}.cre
-RUN     wget https://mathias-kettner.de/support/${livestatusversion}/check-mk-raw-${livestatusversion}.cre.tar.gz && \
+RUN     wget https://download.checkmk.com/checkmk/${livestatusversion}/check-mk-raw-${livestatusversion}.cre.tar.gz && \
         tar -zxvf check-mk-raw-${livestatusversion}.cre.tar.gz -C ../ && \
         rm -f check-mk-raw-${livestatusversion}.cre.tar.gz            && \
         ./configure --with-nagios4      && \
