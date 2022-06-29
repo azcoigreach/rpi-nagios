@@ -47,31 +47,30 @@ ENV DEBIAN_FRONTEND=noninteractive \
     nagvispassword=admin
 
 RUN apt-get update && \
-     apt-get install -y --no-install-recommends \
-     gcc \
-     apache2 \
-     php5 \
-     php5-gd \
-     php5-sqlite \
-     apache2-utils \
-     xinetd \
-     supervisor \
-     git \
-     rsync \
-     wget \
-     postfix \
-     telnet \
-     make \
-     unzip \
-     openssl \
-     libssl-dev \
-     ca-certificates \
-     libcgi-pm-perl \
-     librrds-perl \
-     libgd-gd2-perl \
-     libnagios-object-perl \
-
-# Packages pour mklive
+        apt-get install -y --no-install-recommends \
+        gcc \
+        apache2 \
+        php5 \
+        php5-gd \
+        php5-sqlite \
+        apache2-utils \
+        xinetd \
+        supervisor \
+        git \
+        rsync \
+        wget \
+        postfix \
+        telnet \
+        make \
+        unzip \
+        openssl \
+        libssl-dev \
+        ca-certificates \
+        libcgi-pm-perl \
+        librrds-perl \
+        libgd-gd2-perl \
+        libnagios-object-perl \
+        # Packages pour mklive
         build-essential dpatch dnsutils fping smbclient \
         git-buildpackage libboost-all-dev \
         libcloog-ppl1 libcurl4-openssl-dev  libevent-dev \
@@ -89,12 +88,10 @@ RUN apt-get update && \
         rm -rf /var/lib/apt/lists/*  \
         /tmp/*                       \
         /var/tmp/*                && \
-
-### enable apache modules.. \
+        # enable apache modules..
         a2enmod rewrite && \
         a2enmod cgi && \
-    \
-    ### add nagios (and www-data) user and make them part of nagioscmd group \
+        # add nagios (and www-data) user and make them part of nagioscmd group
         useradd -ms /bin/bash nagios && \
         groupadd nagcmd && \
         usermod -a -G nagcmd nagios && \
