@@ -208,7 +208,7 @@ RUN     wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-${
                     --with-ssl=/usr/bin/openssl                    \
                     --with-ssl-lib=/usr/lib/arm-linux-gnueabihf" && \
         make all                                                && \
-        make install-xinetd                                     && \
+        make install-inetd                                     && \
         make install-daemon-config                      && \
         make install                                    && \
         #sed -i
