@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     nagiosplugins=nagios-plugins-2.3.3 \
     nagvis=nagvis-1.9.33 \
     nagiosgraphversion=1.5.2 \
-    nrpeversion=nrpe-4.0.2 \
+    nrpeversion=4.0.2 \
     ndoutilsversion=2.1.3 \
     portainerpage=0.0.0.0:9400 \
     centreonpage=0.0.0.0:9401 \
@@ -200,7 +200,7 @@ RUN     wget http://downloads.sourceforge.net/project/nagiosgraph/nagiosgraph/${
         sed -i 's/\/tmp\/perfdata.log/\/usr\/local\/nagios\/var\/perfdata.log/' /usr/local/nagiosgraph/etc/nagiosgraph.conf
 
 WORKDIR /usr/local/src/${nrpeversion}
-RUN     wget http://downloads.sourceforge.net/project/nagios/nrpe-2.x/${nrpeversion}/${nrpeversion}.tar.gz       && \
+RUN     wget https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-${nrpeversion}/nrpe-${nrpeversion}.tar.gz       && \
         tar -zxvf ${nrpeversion}.tar.gz -C ../                  && \
         rm -f ${nrpeversion}.tar.gz                             && \
         ./configure --enable-command-args                          \
