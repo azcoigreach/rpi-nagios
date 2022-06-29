@@ -74,11 +74,11 @@ RUN apt-get update && \
         build-essential dpatch dnsutils fping smbclient \
         git-buildpackage libboost-all-dev \
         libcloog-ppl1 libcurl4-openssl-dev  libevent-dev \
-        libgd2-xpm-dev libglib2.0-dev libgnutls28-dev \
+        libgd-dev libglib2.0-dev libgnutls28-dev \
         libldap2-dev libltdl-dev libmcrypt-dev \
-        libmysqlclient15-dev libpango1.0-dev \
+        default-libmysqlclient-dev libpango1.0-dev \
         libperl-dev libreadline-dev libssl-dev libxml2-dev patch \
-        python-dev python-setuptools uuid-dev snmp snmpd libnet-snmp-perl apache2-threaded-dev \
+        python-dev python-setuptools uuid-dev snmp snmpd libnet-snmp-perl apache2-dev \
         libncurses5-dev dietlibc-dev  libpcap-dev  gettext  libgsf-1-dev \
         libradiusclient-ng-dev \
         libjson-perl libnagios-plugin-perl libwww-perl \
